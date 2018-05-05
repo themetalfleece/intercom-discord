@@ -34,7 +34,7 @@
 ## How to configure the server
 * open the `settings.json` file located at the directory root
 * `server -> http and server -> https` configure if you want to use http/https and the ports to be used. For https, you also need to provide the path to the certificates relative to the project's directory
-* `server -> path` configure the path your server listens. It's the same used for intercom's webhook configuration. For example, if you used `http://domain.com/webhook/123` in Intercom, you need to set `wehbook/123` here.
+* `server -> path` configure the path your server listens. It's the same used for intercom's webhook configuration. For example, if you used `http://domain.com/webhook/123` in Intercom, you need to set `/webhook/123` here.
 * `intercom -> hub_secret` the secret key used for notification signing. It match much that in Intercom's webhook configuration
 * `discord -> webhook` the `webhook url` discord provided. You can always find it in Discord at `Server Settings -> Webhooks -> Edit -> webhook url`
 * `enablePingNotifications`: enable or disable `ping` events send by Intercom. I recommend you have it enabled until you make sure it works
