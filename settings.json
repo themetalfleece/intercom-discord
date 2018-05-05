@@ -1,0 +1,24 @@
+{
+    "server": {
+        "http": {
+            "enabled": true,
+            "port": 8080
+        },
+        "https": {
+            "enabled": false,
+            "port": 1234,
+            "certificatePaths": {
+                "key": "encryption/private.key",
+                "cert": "encryption/primary.crt",
+                "ca": "encryption/intermediate.crt"
+            }
+        },
+        "url": "HTTP_POST_PATH"
+    },
+    "intercom": {
+        "hub_secret": "SAME_AS_INTERCOM"
+    },
+    "discord": {
+        "webhook" : "https://discordapp.com/api/webhooks/LINK_FROM_DISCORD"
+    }
+}

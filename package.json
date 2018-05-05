@@ -1,0 +1,15 @@
+{
+  "name": "intercom-discord",
+  "version": "1.0.0",
+  "description": "posts intercom's events to discord",
+  "main": "app.js",
+  "author": "themetalfleece",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bl": "^1.2.2",
+    "crypto": "^1.0.1",
+    "express": "^4.16.3",
+    "get-urls": "^7.2.0"
+  }
+}
