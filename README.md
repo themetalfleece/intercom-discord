@@ -24,7 +24,7 @@
 
 ## How to get the server running
 * clone this repo - `git clone https://github.com/themetalfleece/intercom-discord`
-* install [node.js](https://nodejs.org/en/download/)
+* install [node.js](https://nodejs.org/en/download/) (minimum and suggested: 8.11.1, version 10 is not tested)
 * install the pm2 process manager - run `npm install pm2 -g`
 * navigate to the project's directory and run `npm install` (or, if you're using yarn, run `yarn`)
 * configure your server (look below)
