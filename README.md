@@ -1,9 +1,9 @@
 # Intercom notifications for Discord
 
 ### This app listens to events from Intercom and posts them to Discord (using Intercom and Discord webhooks)
-### Currently, it successfully posts every notification about **any** type of event, in a sacure manner (notifications are signed and https is supported). However, it does so without providing much information about it. It will be improved in the future. If you want to contribute, take a look at `helpers/userFriendlyEvents.js`
+### Currently, it successfully posts every notification about **any** type of event, in a secure manner (notifications are signed and https is supported). However, it does so without providing much information about it. It will be improved in the future. If you want to contribute, take a look at `helpers/userFriendlyEvents.js`
 #### For example, whenever a user replies to a conversation, the following will be posted as soon as it happens:
-![Intercom Bot in action](https://i.imgur.com/l7WKdAG.png "Intercom webhook respsonds to a user-replied event")
+![Intercom Bot in action](https://i.imgur.com/MPIbo3W.png "Intercom webhook respsonds to a user-replied event")
 
 
 ## How to set up Intercom
