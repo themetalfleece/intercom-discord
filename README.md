@@ -37,6 +37,7 @@
 * `server -> path` configure the path your server listens. It's the same used for intercom's webhook configuration. For example, if you used `http://domain.com/webhook/123` in Intercom, you need to set `wehbook/123` here.
 * `intercom -> hub_secret` the secret key used for notification signing. It match much that in Intercom's webhook configuration
 * `discord -> webhook` the `webhook url` discord provided. You can always find it in Discord at `Server Settings -> Webhooks -> Edit -> webhook url`
+* `enablePingNotifications`: enable or disable `ping` events send by Intercom. I recommend you have it enabled until you make sure it works
 * save the file
 * if the server is already running with pm2, restart the server by running `pm2 restart app`
 

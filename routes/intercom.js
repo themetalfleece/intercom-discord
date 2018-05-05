@@ -13,6 +13,11 @@ module.exports = function (app) {
 
       const event = await validateSignature(req, res);
 
+      if (event.topic === 'ping' && !settings.enablePingNotifications) {
+        res.sendStatus(200);
+        return;
+      }
+
       const userFriendly = userFriendlyEvent(event);
 
       await axios.post(settings.discord.webhook, {

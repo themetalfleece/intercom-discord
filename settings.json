@@ -20,5 +20,6 @@
     },
     "discord": {
         "webhook" : "https://discordapp.com/api/webhooks/LINK_FROM_DISCORD"
-    }
+    },
+    "enablePingNotifications": true
 }
