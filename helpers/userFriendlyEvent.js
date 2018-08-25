@@ -49,23 +49,20 @@ function userFriendlyEvent(event) {
     'ping': () => `Intercom ping to make sure the webhook works`
   }
 
-  const topic = parseTopic[event.topic] ? parseTopic[event.topic]() : 'Unknown';
+  const eventTopic = parseTopic[eventTopic];
+  const topic = eventTopic ? eventTopic() : 'Unknown';
 
-  messageLines.push(`A new event just arrived! Topic: **${topic}**`);
-
+  // each topic will be handled differently. For now, just find the link with '/conversations/' included
+  // get the urls set
   const urls = getUrls(JSON.stringify(event));
 
+  // find the needed url
+  let conversationURL;
   if (urls.size !== 0) {
-    messageLines.push(`Found links in the message:`);
-
-    urls.forEach(url => {
-      messageLines.push(`<${url}>`);
-    });
+    conversationURL = [...urls].find(url => url.includes('conversations'));
   }
 
-  const message = messageLines.join('\n');
-
-  return message;
+  return { topic, conversationURL };
 
 }
 

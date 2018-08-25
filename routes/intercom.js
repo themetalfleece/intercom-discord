@@ -18,11 +18,18 @@ module.exports = function (app) {
         return;
       }
 
-      const userFriendly = userFriendlyEvent(event);
+      const { topic, conversationURL } = userFriendlyEvent(event);
 
-      await axios.post(settings.discord.webhook, {
-        content: userFriendly
-      });
+      await axios.post(settings.discord.webhook,
+        {
+          embeds: [{
+            color: 3447003,
+            title: `**${topic}**`,
+            url: conversationURL,
+            timestamp: new Date()
+          }]
+        }
+      )
 
       res.sendStatus(200);
 
