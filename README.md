@@ -3,12 +3,11 @@
 ### This app listens to events from Intercom and posts them to Discord (using Intercom and Discord webhooks)
 ### Currently, it successfully posts every notification about **any** type of event, in a secure manner (notifications are signed and https is supported). However, it does so without providing much information about it. It will be improved in the future. If you want to contribute, take a look at `helpers/userFriendlyEvents.js`
 #### For example, whenever a user replies to a conversation, the following will be posted as soon as it happens:
-![Intercom Bot in action](https://i.imgur.com/MPIbo3W.png "Intercom webhook respsonds to a user-replied event")
+![Intercom Bot in action](https://i.imgur.com/3FS6kOc.png "Intercom webhook respsonds to a admin-replied event")
 
 
 ## How to set up Intercom
-* go to Intercom's [developer hub](https://developers.intercom.com/) and press the `Dashboard` button on the top right
-* click on `Webhooks` (under `TOOLS`)
+* Open `Webhooks` by clicking your Avatar -> `Settings` -> `Developers` -> `Webhooks`
 * click on `Create Webhook`
 * as `webhook url` set the url your server will use. You can use something complex for security, but the notifications will be signed anyway. Example: `http://domain.com/webhook/123`.
 * as `hub secret` use a strong string to be used for signing the notifications. You can use a [uuid string](https://www.uuidgenerator.net/version4). Note this down
@@ -32,7 +31,7 @@
 * for autorun on system startup, refer [here](http://pm2.keymetrics.io/docs/usage/startup/)
 
 ## How to configure the server
-* open the `settings.json` file located at the directory root
+* copy the contents of `settings.json.example` located at the directory root into a `settings.json` file and edit it
 * `server -> http and server -> https` configure if you want to use http/https and the ports to be used. For https, you also need to provide the path to the certificates relative to the project's directory
 * `server -> path` configure the path your server listens. It's the same used for intercom's webhook configuration. For example, if you used `http://domain.com/webhook/123` in Intercom, you need to set `/webhook/123` here.
 * `intercom -> hub_secret` the secret key used for notification signing. It match much that in Intercom's webhook configuration
