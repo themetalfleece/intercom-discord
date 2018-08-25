@@ -26,9 +26,10 @@ if (httpsSettings.enabled) {
     key: fs.readFileSync(paths.key),
     cert: fs.readFileSync(paths.cert),
     ca: fs.readFileSync(paths.ca)
-  }
+  };
 
   https.createServer(options, app).listen(httpsSettings.port);
 }
 
+/* eslint-disable-next-line no-console*/
 console.log('server started!');

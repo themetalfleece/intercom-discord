@@ -1,7 +1,6 @@
 const getUrls = require('get-urls');
 
 function userFriendlyEvent(event) {
-  const messageLines = [];
 
   // TODO also parse the data of the event
   const parseTopic = {
@@ -47,9 +46,9 @@ function userFriendlyEvent(event) {
     'event.created': () => `A subscription to an event`,
 
     'ping': () => `Intercom ping to make sure the webhook works`
-  }
+  };
 
-  const eventTopic = parseTopic[eventTopic];
+  const eventTopic = parseTopic[event.topic];
   const topic = eventTopic ? eventTopic() : 'Unknown';
 
   // each topic will be handled differently. For now, just find the link with '/conversations/' included
