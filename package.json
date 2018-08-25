@@ -11,5 +11,8 @@
     "crypto": "^1.0.1",
     "express": "^4.16.3",
     "get-urls": "^7.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.4.0"
   }
 }
