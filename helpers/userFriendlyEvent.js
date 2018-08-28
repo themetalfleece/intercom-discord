@@ -47,8 +47,10 @@ function userFriendlyEvent(event) {
     'ping': () => `Intercom ping to make sure the webhook works`
   };
 
-  const eventTopic = parseTopic[event.topic];
-  const topic = eventTopic ? eventTopic() : 'Unknown';
+  const topic = event.topic;
+
+  const parsedTopic = parseTopic[topic];
+  const friendlyTopic = parsedTopic ? parsedTopic() : 'Unknown';
 
   // each topic will be handled differently. For now, just find the link with '/conversations/' included
   // get the urls set
@@ -108,7 +110,7 @@ function userFriendlyEvent(event) {
     // TODO for url use: item.links (values) or event.links (values)
   }
 
-  return { topic, conversationURL, fields };
+  return { topic: friendlyTopic, conversationURL, fields };
 
 }
 
