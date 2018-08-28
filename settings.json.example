@@ -21,5 +21,6 @@
     "discord": {
         "webhook" : "https://discordapp.com/api/webhooks/LINK_FROM_DISCORD"
     },
-    "enablePingNotifications": true
+    "enablePingNotifications": true,
+    "richembedFieldValueCharLimit": 1024
 }
