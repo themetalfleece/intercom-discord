@@ -1,4 +1,5 @@
 const getUrls = require('get-urls');
+const settings = require('../settings');
 
 function userFriendlyEvent(event) {
 
@@ -66,9 +67,20 @@ function userFriendlyEvent(event) {
 
   function pushToFields(value, name) {
     if (value) {
+      const limit = settings.richembedFieldValueCharLimit;
+
+      // if it's not a string, stringify it
+      let trimmedValue = typeof value === 'string' ? value : JSON.stringify(value);
+
+      // if it exceeds the limit, keep characters equal to the limit - 3, and add '...' to it
+      if (trimmedValue.length > limit) {
+        trimmedValue = trimmedValue.substring(0, limit - 3);
+        trimmedValue += '...';
+      }
+
       fields.push({
         name,
-        value
+        value: trimmedValue
       });
     }
   }
