@@ -95,8 +95,8 @@ function userFriendlyEvent(event) {
       if (item.conversation_parts && item.conversation_parts.conversation_parts && item.conversation_parts.conversation_parts.length) {
         const parts = item.conversation_parts.conversation_parts;
         // get the last message by finding the max `created`
-        const maxCreated = Math.max.apply(Math, parts.map(function (o) { return o.created; }));
-        message = parts.find(function (o) { return o.created === maxCreated; });
+        const maxCreated = Math.max.apply(Math, parts.map(function (o) { return o.created_at; }));
+        message = parts.find(function (o) { return o.created_at === maxCreated; });
       } else {
         message = item.conversation_message;
       }
