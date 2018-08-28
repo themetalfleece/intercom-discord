@@ -2,7 +2,6 @@ const getUrls = require('get-urls');
 
 function userFriendlyEvent(event) {
 
-  // TODO also parse the data of the event
   const parseTopic = {
 
     'conversation.user.created': () => `A user or lead initiated a message`,
@@ -61,7 +60,55 @@ function userFriendlyEvent(event) {
     conversationURL = [...urls].find(url => url.includes('conversations'));
   }
 
-  return { topic, conversationURL };
+  const fields = [];
+
+  function pushToFields(value, name) {
+    if (value) {
+      fields.push({
+        name,
+        value
+      });
+    }
+  }
+
+  if (event.data && event.data.item && event.data.item && event.data.item.type) {
+    const item = event.data.item;
+
+    if (topic === 'company.created') {
+      pushToFields(item.name, 'Name');
+      pushToFields(item.custom_attributes, 'Custom attributes');
+    } else if (topic === 'user.created') {
+      pushToFields(item.name, 'Name');
+      pushToFields(item.email, 'email');
+      pushToFields(item.phone, 'Phone Number');
+    } else if (['conversation.admin.replied', 'conversation.user.replied', 'conversation.user.created', 'conversation.admin.assigned'].includes(topic)) {
+
+      pushToFields(item.user && item.user.name, 'Conversation recipient');
+
+      if (topic === 'conversation.admin.assigned') {
+        pushToFields(item.assignee && item.assignee.name, 'Assignee name');
+      }
+
+      let message;
+      if (item.conversation_parts && item.conversation_parts.conversation_parts && item.conversation_parts.conversation_parts.length) {
+        const parts = item.conversation_parts.conversation_parts;
+        // get the last message by finding the max `created`
+        const maxCreated = Math.max.apply(Math, parts.map(function (o) { return o.created; }));
+        message = parts.find(function (o) { return o.created === maxCreated; });
+      } else {
+        message = item.conversation_message;
+      }
+
+      const body = message.body && message.body.replace(/<(.|\n)*?>/g, '');
+      pushToFields(body, 'Message');
+      pushToFields(message.author && message.author.name, 'Sent by');
+
+    }
+
+    // TODO for url use: item.links (values) or event.links (values)
+  }
+
+  return { topic, conversationURL, fields };
 
 }
 

@@ -18,7 +18,7 @@ module.exports = function (app) {
         return;
       }
 
-      const { topic, conversationURL } = userFriendlyEvent(event);
+      const { topic, conversationURL, fields } = userFriendlyEvent(event);
 
       await axios.post(settings.discord.webhook,
         {
@@ -26,14 +26,18 @@ module.exports = function (app) {
             color: 3447003,
             title: `**${topic}**`,
             url: conversationURL,
-            timestamp: new Date()
+            timestamp: new Date(),
+            fields
           }]
         }
-      )
+      );
 
       res.sendStatus(200);
 
     } catch (err) {
+
+      /* eslint-disable-next-line no-console */
+      console.log(err);
 
       res.sendStatus(400);
 
