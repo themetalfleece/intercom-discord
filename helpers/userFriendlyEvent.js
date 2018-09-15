@@ -95,7 +95,7 @@ function userFriendlyEvent(event) {
       pushToFields(item.name, 'Name');
       pushToFields(item.email, 'email');
       pushToFields(item.phone, 'Phone Number');
-    } else if (['conversation.admin.replied', 'conversation.user.replied', 'conversation.user.created', 'conversation.admin.assigned'].includes(topic)) {
+    } else if (['conversation.admin.replied', 'conversation.user.replied', 'conversation.user.created', 'conversation.admin.assigned', 'conversation.admin.single.created'].includes(topic)) {
 
       pushToFields(item.user && item.user.name, 'Conversation recipient');
 
