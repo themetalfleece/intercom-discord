@@ -1,4 +1,4 @@
-const settings = require('./settings');
+const settings = require('./settings.js');
 
 const express = require('express'),
   app = express();
@@ -22,8 +22,17 @@ const httpsSettings = settings.server.https;
 if (httpsSettings.enabled) {
 
   const paths = httpsSettings.certificatePaths;
+  let sslPrivateKey;
+
+  if (process.env.hasOwnProperty('SSL_PRIVATE_KEY')) {
+      sslPrivateKey = Buffer.from(process.env.SSL_PRIVATE_KEY, 'utf8');
+  } else {
+      // read private key from env values
+      sslPrivateKey = fs.readFileSync(paths.key);
+  }
+
   const options = {
-    key: fs.readFileSync(paths.key),
+    key: sslPrivateKey,
     cert: fs.readFileSync(paths.cert),
     ca: fs.readFileSync(paths.ca)
   };
