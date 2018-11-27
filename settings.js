@@ -13,8 +13,8 @@ if (process.env.hasOwnProperty('PROTOCOL')) {
     }
 }
 
-if (process.env.hasOwnProperty('INTERCOM')) {
-    settings.intercom.hub_secret = process.env.INTERCOM;
+if (process.env.hasOwnProperty('INTERCOM_HUB_SECRET')) {
+    settings.intercom.hub_secret = process.env.INTERCOM_HUB_SECRET;
 }
 
 if (process.env.hasOwnProperty('DISCORD_WEBHOOK')) {
