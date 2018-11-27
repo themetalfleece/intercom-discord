@@ -21,4 +21,8 @@ if (process.env.hasOwnProperty('DISCORD_WEBHOOK')) {
     settings.discord.webhook = process.env.DISCORD_WEBHOOK;
 }
 
+if (process.env.hasOwnProperty('SERVER_URL')) {
+    settings.server.url = process.env.SERVER_URL;
+}
+
 module.exports = settings;
