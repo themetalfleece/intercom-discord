@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const settings = require('./../settings');
+const settings = require('./../settings.js');
 const validateSignature = require('../helpers/validateSignature');
 const userFriendlyEvent = require('../helpers/userFriendlyEvent');
 
