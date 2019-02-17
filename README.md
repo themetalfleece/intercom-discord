@@ -16,6 +16,13 @@
 * You can find the `Client id` and `Client secret` under the `Basic information` tab
 * If you want to make any changes in the future, you can visit the `Developer hub` and click on your App.
 
+## How to set up Discord
+* on your Discord server's settings, go to Webhooks
+* click on Create Webhook
+* customize it as you want, by setting a picture and display name. Those will be used for the discord messages
+* select the channel in which the messages will be posted
+* note the webhook url
+
 ## How to get the server running
 * clone this repo - `git clone https://github.com/themetalfleece/intercom-discord`
 * install [node.js](https://nodejs.org/en/download/) (minimum and suggested: 8.11.1, version 10 is not tested)
