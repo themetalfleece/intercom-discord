@@ -6,19 +6,15 @@
 
 
 ## How to set up Intercom
-* Open `Webhooks` by clicking your Avatar -> `Settings` -> `Developers` -> `Webhooks`
-* click on `Create Webhook`
-* as `webhook url` set the url your server will use. You can use something complex for security, but the notifications will be signed anyway. Example: `http://domain.com/webhook/123`.
-* as `hub secret` use a strong string to be used for signing the notifications. You can use a [uuid string](https://www.uuidgenerator.net/version4). Note this down
-* select which notifications you want to receive
-* if you want to make any changes in the future, you can click the webhook's ID
+> Webhooks for workspaces in 'Settings' -> 'Developers' -> 'Webhooks' have been deprecated. New webhooks must now be managed through apps, as explained below. 
 
-## How to set up Discord
-* on your Discord server's settings, go to `Webhooks`
-* click on `Create Webhook`
-* customize it as you want, by setting a picture and display name. Those will be used for the discord messages
-* select the channel in which the messages will be posted
-* note the `webhook url`
+* Open `Your apps` page in Intercom `Developer Hub` by clicking on your Avatar -> `Settings` -> `Developers` -> `Developer Hub`
+* Click `New app`
+* Name your app, and select which `workspace` you want the Discord integration to added to.  Choose `Internal integration` and create the app
+* Under `Webhooks` tab, set `Your request endpoint URL` to the url your server will use.  You can use something complex for security, but the notifications will be signed anyway. Example: `http://domain.com/webhook/123`
+* Under `Webhook topics`, select which topics you would like to receive notifications for
+* You can find the `Client id` and `Client secret` under the `Basic information` tab
+* If you want to make any changes in the future, you can visit the `Developer hub` and click on your App.
 
 ## How to get the server running
 * clone this repo - `git clone https://github.com/themetalfleece/intercom-discord`
