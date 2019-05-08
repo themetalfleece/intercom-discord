@@ -2,11 +2,11 @@
     "server": {
         "http": {
             "enabled": true,
-            "port": 8080
+            "port": 80
         },
         "https": {
             "enabled": false,
-            "port": 1234,
+            "port": 443,
             "certificatePaths": {
                 "key": "encryption/private.key",
                 "cert": "encryption/primary.crt",
